@@ -1,0 +1,19 @@
+{
+  "name": "pushnotificationdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psjsaravana/PushNotificationDemo.git"
+  },
+  "author": "Saravanakumar Subramaniam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psjsaravana/PushNotificationDemo/issues"
+  },
+  "homepage": "https://github.com/psjsaravana/PushNotificationDemo#readme"
+}
