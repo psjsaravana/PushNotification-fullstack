@@ -1,0 +1,10 @@
+{
+  "name": "PushNotificationDemo",
+  "private": "true",
+  "devDependencies": {},
+  "dependencies": {
+    "angular-ui-router": "^0.3.1",
+    "angular": "^1.5.7",
+    "bootstrap": "^3.3.6"
+  }
+}
