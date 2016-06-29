@@ -6,7 +6,7 @@ var TokenModel = mongoose.model('Tokens');
 var sessionAuth = require('./sessionauthentication');
 
 var message = new gcm.Message();
-var sender = new gcm.Sender('AIzaSyDT22fPgIM9maZs-PpdzLW3vL3AN5v92A8');
+var sender = new gcm.Sender('Your own API key');
 
 
 module.exports.addtoken = function(req, res) {
