@@ -1,0 +1,30 @@
+html,
+body,
+.outer,
+[ui-view] {
+    height: 100%
+}
+
+.inner {
+    min-height: 100%;
+}
+
+/*Login View*/
+
+.center-wrapper {
+    width: 60%;
+    height: 40%;
+    margin: auto;
+    background-color: whitesmoke;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+}

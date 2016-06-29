@@ -1,1 +1,10 @@
-register Page
+<div class="center-wrapper">
+    <div class="container-fluid" style="height:100%">
+        <div class="row" id="login-container">
+        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" ng-model="newuser.username" placeholder="User Name">  
+        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="email" ng-model="newuser.email" placeholder="Email">  
+        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="password" ng-model="newuser.password" placeholder="Password">   
+        	<button class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="doRegister()">Register</button> 
+        </div>
+    </div>
+</div>

@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 8001;
 
+var db=require('./server/api/models/db');
+var routesApi = require('./server/api/routes/index');
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -15,6 +19,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
+
+app.use('/api', routesApi);
+
+app.use('/', function(req, res) {
+  res.sendFile(__dirname + 'client/index.html')
+})
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -30,7 +41,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.send({
             message: err.message,
             error: err
         });
@@ -41,15 +52,11 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.send({
         message: err.message,
         error: {}
     });
 });
-
-app.use('/', function(req, res) {
-  res.sendFile(__dirname + 'client/index.html')
-})
 
 app.listen(port, function(error) {
   if (error) {
