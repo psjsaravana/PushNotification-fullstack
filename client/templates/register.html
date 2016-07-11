@@ -1,10 +1,14 @@
-<div class="center-wrapper">
-    <div class="container-fluid" style="height:100%">
-        <div class="row" id="login-container">
-        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" ng-model="newuser.username" placeholder="User Name">  
-        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="email" ng-model="newuser.email" placeholder="Email">  
-        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="password" ng-model="newuser.password" placeholder="Password">   
-        	<button class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="doRegister()">Register</button> 
+<div class="container">
+    <div class="row ">
+        <div id="contentdiv" class="contcustom">
+            <div class="logout-container"><span class="fa fa-arrow-circle-left medhidden" ng-click="navBack()"></span></div>
+            <h3>Register</h3>
+            <div>
+                <input type="text" placeholder="Username" ng-model="newuser.username">
+                <input type="password" placeholder="Password" ng-model="newuser.password">
+                <input type="email" placeholder="Email" ng-model="newuser.email">
+                <span class="fa fa-user-plus medhidden redborder" ng-click="doRegister()"></span>
+            </div>
         </div>
     </div>
 </div>

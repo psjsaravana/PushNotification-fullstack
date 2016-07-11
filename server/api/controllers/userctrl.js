@@ -24,19 +24,19 @@ module.exports.addtoken = function(req, res) {
             TokenModel.find(deviceTokenObj).exec(function(err, result) {
                 if (!err) {
                     if (result.length != 0) {
-                        res.send({ "message": "Token already added" });
+                        res.send({ "success": "false", "message": "Token already added" });
                     } else {
                         tokenObj.save(function(err) {
                             if (err) res.send(err);
-                            res.send({ "message": "Token added successfully!" });
+                            res.send({ "success": "true", "message": "Token added successfully!" });
                         })
                     }
                 } else {
-                    res.send({ "message": "Database error" });
+                    res.send({ "success": "false", "message": "Database error" });
                 };
             });
         } else {
-            res.send({ "message": "error", err: response.err });
+            res.send({ "success": "false", "message": "Token Expired", err: response.err });
         }
     })
 };
@@ -52,22 +52,25 @@ module.exports.sendnotification = function(req, res) {
             }
             TokenModel.find(userAssociatedDevices).exec(function(err, result) {
                 if (!err) {
-                    message.addNotification('title', req.body.title);
-                    message.addNotification('body', req.body.message);
+                    message.addData('title', req.body.title);
+                    message.addData('body', req.body.content);                    
                     var registrationTokens = [];
                     for (var i = 0; i < result.length; i++) {
                         registrationTokens.push(result[i].token);
                     }
                     sender.send(message, { registrationTokens: registrationTokens }, function(err, response) {
-                        if (err) res.send(err);
-                        else res.send(response);
+                        if (err) {
+                            res.send({ "success": "false", "message": "error", err: err });
+                        } else {
+                            res.send({ "success": "true", "message": "Notification Send", res: response });
+                        }
                     });
                 } else {
-                    res.send(err);
+                    res.send({ "success": "false", "No device found": "error", err: err });
                 };
             });
         } else {
-            res.send({ "message": "error", err: response.err });
+            res.send({ "success": "false", "message": "Token Expired", err: response.err });
         }
     })
 

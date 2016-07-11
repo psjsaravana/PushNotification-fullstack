@@ -26,21 +26,26 @@ module.exports.register = function(req, res) {
 module.exports.login = function(req, res) {
     var loginUser = {
         name: req.body.username
-    }
-    User.findOne(loginUser).exec(function(err, result) {
-        if (!err) {
-            if (result.length == 0) {
-                res.send({ "status": "KO", "message": "User not found" });
-            } else if (result.password === req.body.password) {
-                var token = jwt.sign(result,'Saravana',{expiresIn: '1m'});
-                res.send({ "status": "OK", "message": "success", token: token });
+    };
+    if(req.body.username) {
+        User.findOne(loginUser).exec(function(err, result) {
+            if (!err) {
+                if (!result) {
+                    res.send({ "success": "false", "message": "User not found" });
+                } else if (result.password === req.body.password) {
+                    var token = jwt.sign(result,'Saravana',{expiresIn: '5m'});
+                    var userDetails = {username:result.name,email:result.email}
+                    res.send({ "success": "true", "message": "success", token: token,userDetails:userDetails });
+                } else {
+                    res.send({ "success": "false", "message": "Password incorrect" });
+                }
             } else {
-                res.send({ "status": "KO", "message": "Password incorrect" });
+                res.send(err);
             }
-        } else {
-            res.send(err);
-        }
-    });
+        });
+    }else {
+        res.send({ "success": "false", "message": "username is not valid" });
+    }
 
 };
 

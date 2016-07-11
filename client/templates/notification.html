@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row ">
+        <div id="contentdiv" class="contcustom">
+            <div class="logout-container"><span class="fa fa-sign-out medhidden" ng-click="doLogout()"></span></div>
+            <h3 style="margin-top: 45px;">Welcome {{userDetails.username}} !!!</h3>
+            <div>
+                <input type="text" placeholder="Title" ng-model="notification.title">
+                <input type="password" ng-model="notification.content" placeholder="Content">
+                <span class="fa medhidden redborder" ng-click="sendNotification()">
+	                <span style="font-size:20px">Send Notification</span>
+                    <span class="fa fa-share-square-o"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

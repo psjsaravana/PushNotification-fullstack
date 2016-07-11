@@ -1,10 +1,20 @@
-<div class="center-wrapper">
-    <div class="container-fluid" style="height:100%">
-        <div class="row" id="login-container">
-        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" ng-model="loginuser.username" placeholder="User Name">   
-        	<input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="password" ng-model="loginuser.password" placeholder="Password">   
-        	<button class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="loginTap()">Login</button> 
-        	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">Click <a href="" ng-click="registerTap()">here</a> to register</div>
+<div class="container">
+    <div class="row ">
+        <div id="contentdiv" class="contcustom">
+            <h3>Login</h3>
+            <div>
+                <input type="text" placeholder="Username" ng-model="loginuser.username">
+                <input type="password" placeholder="Password" ng-model="loginuser.password">
+                <span class="fa fa-sign-in medhidden redborder" ng-click="loginTap()"></span>
+            </div>
+            <div>
+                <br>
+                <p>
+                    <div><a id="registerAnchor" ng-click="registerTap()"> <h4>Register</h4> </a> </div>
+                    <br>
+                    <div>Download the Mobile application <a id="registerAnchor" href="https://drive.google.com/uc?export=download&id=0B7s2nWF2Ie-oUGwyR3UxaU9kVWc"> here </a></div>
+                </p>
+            </div>
         </div>
     </div>
 </div>

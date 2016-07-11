@@ -9,6 +9,6 @@ var ctrlUser = require('../controllers/userctrl');
 router.post('/register', ctrlAuth.register);
 router.post('/authenticate', ctrlAuth.login);
 router.post('/addtoken', ctrlUser.addtoken);
-router.get('/sendnotification', ctrlUser.sendnotification);
+router.post('/sendnotification', ctrlUser.sendnotification);
 
 module.exports = router;
